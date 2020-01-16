@@ -1,0 +1,76 @@
+/* .container{
+    height: 100px;
+} */
+*{
+    margin: 0;
+}
+.headerContainer{
+
+    align-items: center;
+    justify-content: space-around;
+}
+.header {
+    display: flex;
+}
+
+@keyframes animatedBackground {
+from {
+background-position: 0 0;
+}
+to {
+background-position: 100% 0;
+}
+}
+.header {
+/* width: 200px; */
+height: 85px;
+background-image: url("images/Water.PNG");
+background-position: 0px 0px;
+background-repeat: repeat-x;
+animation: animatedBackground 10s linear infinite alternate;
+}
+.NameOfPlayer{
+    color: rgb(219, 243, 165);
+}
+
+#heart {
+    font-size: xx-large;
+    color: red;
+}
+
+#trophy {
+    font-size: xx-large;
+    color: gold;
+}
+
+#diamond{
+    font-size: xx-large;
+    color: rgb(231, 250, 161);
+
+}
+h2{
+    display: inline-block;
+} 
+.NameOfPlayer {
+    font-family: cursive;
+}
+
+#score,#noOfHeart {
+    font-family: cursive;
+}
+/* .stoneAreaContainer{
+    background-color: gray;
+} */
+
+.stoneArea{
+    background-image: url("images/stone.jpg");
+    height: 246px;
+
+
+}
+.grassArea{
+    background-image: url("images/grass.jpg");
+    height:203px;
+
+
+}
