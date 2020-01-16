@@ -1,6 +1,3 @@
-/* .container{
-    height: 100px;
-} */
 *{
     margin: 0;
 }
@@ -24,7 +21,7 @@ background-position: 100% 0;
 .header {
 /* width: 200px; */
 height: 85px;
-background-image: url("images/Water.PNG");
+background-image: url("../images/Water.PNG");
 background-position: 0px 0px;
 background-repeat: repeat-x;
 animation: animatedBackground 10s linear infinite alternate;
@@ -55,7 +52,7 @@ h2{
     font-family: cursive;
 }
 
-#score,#noOfHeart {
+#score,#noOfHeart,#highScore {
     font-family: cursive;
 }
 /* .stoneAreaContainer{
@@ -63,13 +60,13 @@ h2{
 } */
 
 .stoneArea{
-    background-image: url("images/stone.jpg");
+    background-image: url("../images/stone.jpg");
     height: 246px;
 
 
 }
 .grassArea{
-    background-image: url("images/grass.jpg");
+    background-image: url("../images/grass.jpg");
     height:203px;
 
 

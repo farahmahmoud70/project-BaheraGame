@@ -7,13 +7,48 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
 
     <title>Document</title>
+    <script src="node_modules/jquery/dist/jquery.js"></script>
     <script src="https://use.fontawesome.com/bad478ab39.js"></script>
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="style/start.css">
+    <link rel="stylesheet" href="style/style.css">
 
 
 </head>
 
 <body>
+
+    <div class="start-container">
+        <div class="cover-img">
+            <img src="images/coverImg.jpg">
+        </div>
+        <div class="register-btn">
+            <button class="reg-btn" id ="start-game">Start Game</button>
+        </div>
+
+    </div>
+    <div class="register">
+        
+            <div class="Login-form">
+                <h2 id = "title">login now..</h2>
+                <form>
+                    <input id="username" type="text" name="username" id="username" placeholder="Enter UserName...">
+                </form>
+                <button class="btns reg-btn" id="login">Login</button>
+                <span id="error"></span>
+               
+            </div>
+
+            <div class = "condition-form">
+                <button class="reg-btn" id="continue">continue</button>
+                <button class="reg-btn" id="new-gamer">new game</button>
+            </div>
+            
+       
+    </div>
+    
+
+
+    <div class= "game-container hide">
     <div class="container">
         <span class="header headerContainer">
             <h2 class="NameOfPlayer">Youstina Nader</h2>
@@ -22,12 +57,12 @@
                 <h2 id="noOfHeart">5</h2>
             </div>
             <span class="plapla">
-                <i id="trophy" class="fa fa-trophy" aria-hidden="true"></i>
-                <h2 id="highScore">300</h2>
-            </span>
-            <span class="plapla">
                 <i id="diamond" class="fa fa-diamond" aria-hidden="true"></i>
                 <h2 id="score">100</h2>
+            </span>
+            <span class="plapla">
+                <i id="trophy" class="fa fa-trophy" aria-hidden="true"></i>
+                <h2 id="highScore">300</h2>
             </span>
     </div>
     <div class="header"> </div>
@@ -45,6 +80,9 @@
 
 
     </div>
+
+
+    <script src="js/start.js"></script>
 </body>
 
 </html>

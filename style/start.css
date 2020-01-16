@@ -1,0 +1,105 @@
+html,body{
+    margin: 0;
+}
+.start-container{
+    
+    background-repeat: no-repeat;
+    text-align: center;
+}
+.coverimg{
+    /* background-image: url('coverImg.jpg'); */
+    position: relative;
+    display: inline-block;
+}
+.register-btn{
+    position:absolute;
+    top:80%; ;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+.reg-btn{
+color: #2c7421 ;
+text-transform: uppercase;
+background: #ffffff;
+padding: 20px;
+border-radius: 50px;
+display: block;
+border: 2px solid #2c7421;
+transition: all 0.4s ease 0s;
+cursor: pointer;
+}
+.reg-btn:hover {
+    color:#fff;
+    background: #2c7421;
+    border: 2px solid #fff;
+    text-shadow: 0px 0px 6px rgba(255, 255, 255, 1);
+    transition: all 0.4s ease 0s;
+    }
+.register{
+    width: 100%;
+    display: none;
+    background-color:none;
+    opacity: 100%;
+    position: absolute;
+    top: 0;
+    
+}
+.Login-form, .condition-form{
+    display: none;
+    width: 350px;
+    height: 241px;
+    margin: auto;
+    margin-top: 25px;
+    background: #fff !important;
+    /* background-image: url('123.png'); */
+    opacity: 100%;
+    border-radius: 10%;
+    border: 2px solid gray;
+}
+#title{
+    text-transform: uppercase;
+    text-align: center;
+    margin-top: 40px;
+    color: #2c7421 ;
+    text-shadow: 0px 0px 6px rgb(218, 210, 210);
+}
+#username{
+    display: block;
+    width: 75%;
+    height: 25px;
+    margin: auto;
+    margin-top: 35px;
+    border-radius: 4px;
+}
+.btns{
+    text-transform: uppercase;
+    margin-top: 5px;
+    margin: auto;
+    margin-top: 7%;
+    display: block;
+    padding : 15px 20px 15px 20px;
+}
+#error{
+    display: inline-block;
+    color: rgb(150, 17, 17);
+    text-align: center;
+    margin-top: 5px;
+}
+
+#continue, #new-gamer{
+    margin: 40px auto 0px auto;
+}
+.show-reg-container{
+    display: block;
+    margin: auto;
+}
+.show-reg-form{
+    
+    display: block;
+    margin: auto;
+    margin-top: 12.4%;
+    /* background-color: blue; */
+}
+.hide{
+    display: none;
+}
