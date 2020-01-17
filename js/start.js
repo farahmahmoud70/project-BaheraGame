@@ -35,37 +35,11 @@ $('#login').click(function(e){
     console.log("hiiiii",arr)
     var obj;
 
-    
-    //var retrive = 
-    // function retrive() {
-    //     if(retrivedOjects && retrivedOjects.length > 0){
-    //         arr.forEach(function(obj) {
 
-                
-    //             console.log("obj",obj)
-    //             for(var i =0 ; i < arr.length ; i++){
-    //                     var obj = arr[i];
-    //                 console.log(obj)
-    //             console.log("arrrrrrrrrrrrrrrrrr",arr[i].username, arr[i].scorenum,arr[i].highScoreNum,arr[i].lifenum);
-    //             if(val == arr[i].username){
-    //                 console.log("fsdf");
-    //                 storedUsername = arr[i].username;
-    //                 storedscore = arr[i].scorenum;
-    //                 storedHighScore = arr[i].highScoreNum;
-    //                 storedLife = arr[i].lifenum;
-
-
-    //                 console.log(storedscore, storedLife, storedHighScore)
-    //             }
-    //             }
-               
-    //         });
-    //     }   
-    // }
     var audio = document.getElementById("sound");
 
 
-     function retrive() {
+    export default function retrive() {
         if(retrivedOjects && retrivedOjects.length > 0){
             arr.forEach(function(obj) {
 

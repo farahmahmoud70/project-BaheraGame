@@ -1,0 +1,28 @@
+.enemies {
+    width: 100%;
+    overflow: hidden;
+    position: relative;
+}
+
+.enemy {
+    display: block;
+    position: relative;
+    top:5px;
+    margin-bottom: 5px;
+}
+
+.girl {
+    position: relative;
+    top: 12vh;
+    left: 46vw;
+}
+
+@keyframes mymove {
+    from {
+        left: -100px;
+    }
+
+    to {
+        left: 100%;
+    }
+}
