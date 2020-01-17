@@ -24,16 +24,18 @@ background: #ffffff;
 padding: 20px;
 border-radius: 50px;
 display: block;
-border: 2px solid #2c7421;
+border: 2px solid rgb(97, 192, 72);
 transition: all 0.4s ease 0s;
 cursor: pointer;
+
 }
 .reg-btn:hover {
     color:#fff;
-    background: #2c7421;
+    background:rgb(97, 192, 72);
     border: 2px solid #fff;
     text-shadow: 0px 0px 6px rgba(255, 255, 255, 1);
     transition: all 0.4s ease 0s;
+font-size: 20px;
     }
 .register{
     width: 100%;
@@ -71,6 +73,7 @@ cursor: pointer;
     margin: auto;
     margin-top: 35px;
     border-radius: 4px;
+    background-color: aliceblue;
 }
 .btns{
     text-transform: uppercase;
