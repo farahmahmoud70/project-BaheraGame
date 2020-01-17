@@ -62,6 +62,7 @@ $('#login').click(function(e){
     //         });
     //     }   
     // }
+    var audio = document.getElementById("sound");
 
 
      function retrive() {
@@ -99,6 +100,7 @@ $('#login').click(function(e){
       
         if(e.target.parentNode.nextElementSibling.firstElementChild === document.getElementById("continue")){
             $('#continue').click(function(e) {
+
             console.log(storedUsername);
             $('.register').removeClass('show-reg-container');
             $('.start-container').addClass('hide');
@@ -107,6 +109,8 @@ $('#login').click(function(e){
             $('#noOfHeart').text(storedLife);
             $('#score').text(storedscore);
             $('#highScore').text(storedHighScore);
+                audio.play();
+            
             
         })
         }
@@ -121,6 +125,8 @@ $('#login').click(function(e){
             $('#noOfHeart').text(storedLife);
             $('#score').text(storedscore);
             $('#highScore').text(storedHighScore);
+            audio.play();
+
             })
         }
         console.log("log in")
@@ -147,6 +153,8 @@ $('#login').click(function(e){
         $('#noOfHeart').text('3');
         $('#score').text('0');
         $('#highScore').text('0');
+        audio.play();
+
 
         // retrivedOjects = localStorage.getItem('dataObjectArr');
 

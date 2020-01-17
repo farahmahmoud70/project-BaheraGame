@@ -1,32 +1,37 @@
-*{
+* {
     margin: 0;
 }
-.headerContainer{
+
+.headerContainer {
 
     align-items: center;
     justify-content: space-around;
 }
+
 .header {
     display: flex;
 }
 
 @keyframes animatedBackground {
-from {
-background-position: 0 0;
+    from {
+        background-position: 0 0;
+    }
+
+    to {
+        background-position: 100% 0;
+    }
 }
-to {
-background-position: 100% 0;
-}
-}
+
 .header {
-/* width: 200px; */
-height: 85px;
-background-image: url("../images/Water.PNG");
-background-position: 0px 0px;
-background-repeat: repeat-x;
-animation: animatedBackground 10s linear infinite alternate;
+    /* width: 200px; */
+    height: 85px;
+    background-image: url("../images/Water.PNG");
+    background-position: 0px 0px;
+    background-repeat: repeat-x;
+    animation: animatedBackground 10s linear infinite alternate;
 }
-.NameOfPlayer{
+
+.NameOfPlayer {
     color: rgb(219, 243, 165);
 }
 
@@ -40,34 +45,47 @@ animation: animatedBackground 10s linear infinite alternate;
     color: gold;
 }
 
-#diamond{
+#diamond {
     font-size: xx-large;
     color: rgb(231, 250, 161);
 
 }
-h2{
+
+.on,
+.off {
+    font-size: xx-large;
+    
+
+}
+
+h2 {
     display: inline-block;
-} 
+}
+
 .NameOfPlayer {
     font-family: cursive;
 }
 
-#score,#noOfHeart,#highScore {
+#score,
+#noOfHeart,
+#highScore {
     font-family: cursive;
 }
+
 /* .stoneAreaContainer{
     background-color: gray;
 } */
 
-.stoneArea{
+.stoneArea {
     background-image: url("../images/stone.jpg");
     height: 246px;
 
 
 }
-.grassArea{
+
+.grassArea {
     background-image: url("../images/grass.jpg");
-    height:203px;
+    height: 203px;
 
 
 }
