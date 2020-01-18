@@ -25,16 +25,52 @@ var enemies = document.querySelectorAll('.enemy');
 var enimesss = [];
 // let start = Date.now();
 
-var counterLevel1 = 12;
+var counterLevel1 = 20;
 var counterLevel2 = 5;
+var scoreChange;
 var speed = Math.floor(Math.random() * counterLevel1 + counterLevel2)
 console.log("jj", speed)
 // var d;
 // var body = document.body.clientWidth;
+
+console.log(scoreChange);
+console.log(parseInt($('#score').text()))
+function bugspeed(){
+  do {
+    enemies.forEach(function (cur) {
+      console.log(y)
+        
+        speed = Math.floor(Math.random() * counterLevel1 + counterLevel2)
+        console.log(speed)
+      cur.style.animation = `mymove ${speed}s linear infinite`
+      enimesss.push(cur);
+      console.log(enimesss)
+      cur.addEventListener('animationstart', function () {
+    
+        setInterval(() => {
+          isCollapsed(cur, player);
+    
+        }, 100);
+    
+    
+      });
+      cur.addEventListener('animationiteration', function () {
+        setInterval(() => {
+          isCollapsed(cur, player)
+        }, 100);
+    
+      })
+    
+    
+    
+    })
+    } while (scoreChange<parseInt($('#score').text()));
+}
+bugspeed();
+
 document.addEventListener('keydown', function (e) {
   console.log(e.keyCode);
   //top 
-   
   document.querySelector(".levelUpContainer").classList.add("hide")
     audio.muted = false;
   if (e.keyCode == 38) {
@@ -70,8 +106,16 @@ document.addEventListener('keydown', function (e) {
           if (obj.username === $('.NameOfPlayer').text()) {
             console.log("beeeeeb");
 
-
+            scoreChange=obj.score;
             obj.score++;
+            counterLevel1-=2;
+            counterLevel2--;
+            if(counterLevel1<=0&&counterLevel2<=0){
+              counterLevel1=2;
+              counterLevel2=1;
+              // Math.floor(Math.random() * counterLevel1 + counterLevel2)
+            }
+            bugspeed();
             $('#noOfHeart').text(obj.lifes);
             $('#score').text(obj.score);
             $('#highScore').text(obj.highScore);
@@ -139,42 +183,6 @@ document.addEventListener('keydown', function (e) {
     isCollapsed(enimesss[index], player)
   }
 })
-
-enemies.forEach(function (cur) {
-  console.log(y)
-  if (document.querySelector('.girl').getBoundingClientRect() < -50) {
-    counterLevel1--;
-    counterLevel2--;
-
-    console.log("ccccc", counterLevel1);
-    console.log("vvvvv", counterLevel2);
-
-    console.log(speed);
-  }
-  speed = Math.floor(Math.random() * counterLevel1 + counterLevel2)
-  cur.style.animation = `mymove ${speed}s linear infinite`
-  enimesss.push(cur);
-  console.log(enimesss)
-  cur.addEventListener('animationstart', function () {
-
-    setInterval(() => {
-      isCollapsed(cur, player);
-
-    }, 100);
-
-
-  });
-  cur.addEventListener('animationiteration', function () {
-    setInterval(() => {
-      isCollapsed(cur, player)
-    }, 100);
-
-  })
-
-
-
-})
-
 
 
 
