@@ -34,17 +34,23 @@ console.log("jj", speed)
 // var body = document.body.clientWidth;
 
 console.log(scoreChange);
-console.log(parseInt($('#score').text()))
+// console.log(parseInt($('#score').text()))
 function bugspeed(){
   do {
     enemies.forEach(function (cur) {
-      console.log(y)
-        
+      // console.log(y)
+        console.log("c2f",counterLevel2)
+        console.log("c1f",counterLevel1)
+        if(counterLevel2<=1){
+          counterLevel2=1;
+        }
+        console.log("c2",counterLevel2)
+        console.log("c1",counterLevel1)
         speed = Math.floor(Math.random() * counterLevel1 + counterLevel2)
-        console.log(speed)
+        console.log("in do while",speed)
       cur.style.animation = `mymove ${speed}s linear infinite`
       enimesss.push(cur);
-      console.log(enimesss)
+      // console.log(enimesss)
       cur.addEventListener('animationstart', function () {
     
         setInterval(() => {
@@ -69,7 +75,7 @@ function bugspeed(){
 bugspeed();
 
 document.addEventListener('keydown', function (e) {
-  console.log(e.keyCode);
+  // console.log(e.keyCode);
   //top 
   document.querySelector(".levelUpContainer").classList.add("hide")
     audio.muted = false;
@@ -104,22 +110,27 @@ document.addEventListener('keydown', function (e) {
         arr.forEach(function (obj) {
 
           if (obj.username === $('.NameOfPlayer').text()) {
-            console.log("beeeeeb");
+            // console.log("beeeeeb");
 
             scoreChange=obj.score;
             obj.score++;
             counterLevel1-=2;
             counterLevel2--;
-            if(counterLevel1<=0&&counterLevel2<=0){
+            console.log("befor ask ",speed);
+            if(speed<=1){
               counterLevel1=2;
               counterLevel2=1;
+              console.log("befor ask ",speed);
               // Math.floor(Math.random() * counterLevel1 + counterLevel2)
+            }
+            if(counterLevel2===1){
+              counterLevel2=1;
             }
             bugspeed();
             $('#noOfHeart').text(obj.lifes);
             $('#score').text(obj.score);
             $('#highScore').text(obj.highScore);
-            console.log(obj, obj.score, obj.lifes)
+            // console.log(obj, obj.score, obj.lifes)
             return true
 
           }
@@ -155,11 +166,11 @@ document.addEventListener('keydown', function (e) {
     $('.girl').css({
       "left": `${x}vw`
     });
-    console.log(window.innerWidth)
-    console.log(x)
+    // console.log(window.innerWidth)
+    // console.log(x)
     if (x >= 94) {
       x = 94;
-      console.log("rrrr", x);
+      // console.log("rrrr", x);
       $('.girl').css({
         "left": `${x}vw`
       });
@@ -213,16 +224,16 @@ function isCollapsed(enemy, player) {
     });
 
 
-    console.log(storedLife)
+    // console.log(storedLife)
 
     var life = storedLife;
-    console.log(life)
+    // console.log(life)
 
     if (retrivedOjects && retrivedOjects.length > 0) {
       arr.forEach(function (obj) {
 
         if (obj.username === $('.NameOfPlayer').text()) {
-          console.log("beeeeeb");
+          // console.log("beeeeeb");
           if (obj.lifes <= 3) {
 
             obj.lifes--;
@@ -237,7 +248,7 @@ function isCollapsed(enemy, player) {
             obj.lifes = 3;
             if (obj.highScore < obj.score) {
               obj.highScore = obj.score;
-              console.log(obj.highScore)
+              // console.log(obj.highScore)
             }
             obj.score = 0;
             var gameOverAudio = document.querySelector(".gameOverAudio")
@@ -247,7 +258,7 @@ function isCollapsed(enemy, player) {
             audio.muted = true;
           }
 
-          console.log(obj, obj.score, obj.lifes)
+          // console.log(obj, obj.score, obj.lifes)
           return true
 
         }
