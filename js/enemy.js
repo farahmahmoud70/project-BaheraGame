@@ -25,7 +25,7 @@ var enemies = document.querySelectorAll('.enemy');
 var enimesss = [];
 // let start = Date.now();
 
-var counterLevel1 = 20;
+var counterLevel1 = 30;
 var counterLevel2 = 5;
 var scoreChange;
 var speed = Math.floor(Math.random() * counterLevel1 + counterLevel2)
