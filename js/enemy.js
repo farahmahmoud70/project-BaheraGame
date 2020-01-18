@@ -33,11 +33,14 @@ console.log("jj", speed)
 // var body = document.body.clientWidth;
 document.addEventListener('keydown', function (e) {
   console.log(e.keyCode);
-  //top
+  //top 
+   
+  document.querySelector(".levelUpContainer").classList.add("hide")
+    audio.muted = false;
   if (e.keyCode == 38) {
     y -= 14;
-    document.querySelector(".levelUpContainer").classList.add("hide")
-    audio.muted = false;
+    // document.querySelector(".levelUpContainer").classList.add("hide")
+    // audio.muted = false;
 
     // console.log(x)
     $('.girl').css({
