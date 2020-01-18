@@ -17,8 +17,24 @@
 </head>
 
 <body>
+    <section class="gameOverContainer hide" >
+        <video src="video/smoke.mp4" autoplay muted></video>
+        <audio class="gameOverAudio" src="sound/gameOver.mp3"></audio>
+ 
+     <h1 class="gameOver">
+            <span>G</span>
+            <span>A</span>
+            <span>M</span>
+            <span>E</span>
+            <span></span>
+            <span>O</span>
+            <span>V</span>
+            <span>E</span>
+            <span>R</span>
+        </h1>
+    </section>
+ 
 
-    
 
     <div class="start-container">
         <div class="cover-img">
@@ -73,14 +89,19 @@
                 </span>
                 <audio id="sound" loop>
                     <source src="sound/WhatsApp Audio 2020-01-17 at 3.10.00 PM.mpeg" type="audio/ogg">
-                     <source src="sound/WhatsApp Audio 2020-01-17 at 3.10.00 PM.mpeg" type="audio/mpeg">
+                    <source src="sound/WhatsApp Audio 2020-01-17 at 3.10.00 PM.mpeg" type="audio/mpeg">
                     Your browser does not support the audio element.
-                  </audio>
+                </audio>
+
+
+               
 
 
         </div>
         <div class="header"> </div>
-
+        <!-- <div class="levelUpContainer hide "> -->
+            <!-- <span class="levelUp"> WOW </span> -->
+        <!-- </div> -->
         <div class="stoneAreaContainer">
             <div class="stoneArea">
                 <div class="enemies">
@@ -99,6 +120,10 @@
             </div>
         </div>
     </div>
+    
+    <audio class="levelUpAudio" src="sound/levelUp.mp3"></audio>
+    <audio class="fallAudio" src="sound/fall.mp3"></audio>
+    <img class="levelUpContainer hide " src="images/wow.png" alt="">
 
 
     <!-- <script src="js/start.mjs"></script> -->
