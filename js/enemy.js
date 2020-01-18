@@ -11,9 +11,11 @@ import {
   logIn,
   retrive
 } from './start.mjs'
-// import {logIn} from './start.mjs'
+import{soundOn,
+  soundOff,
+  audio} from './UI.mjs'
 
-
+var flag = true;
 $('#start-game').click(startGame);
 $('#login').click(logIn);
 
@@ -23,171 +25,140 @@ var x = 46;
 var player = document.querySelector('.girl');
 var enemies = document.querySelectorAll('.enemy');
 var enimesss = [];
-// let start = Date.now();
-
 var counterLevel1 = 30;
 var counterLevel2 = 5;
 var scoreChange;
 var speed = Math.floor(Math.random() * counterLevel1 + counterLevel2)
-console.log("jj", speed)
-// var d;
-// var body = document.body.clientWidth;
 
-console.log(scoreChange);
-// console.log(parseInt($('#score').text()))
-function bugspeed(){
+function bugspeed() {
   do {
     enemies.forEach(function (cur) {
-      // console.log(y)
-        console.log("c2f",counterLevel2)
-        console.log("c1f",counterLevel1)
-        if(counterLevel2<=1){
-          counterLevel2=1;
-        }
-        console.log("c2",counterLevel2)
-        console.log("c1",counterLevel1)
-        speed = Math.floor(Math.random() * counterLevel1 + counterLevel2)
-        console.log("in do while",speed)
+      if (counterLevel2 <= 1) {
+        counterLevel2 = 1;
+      }
+      speed = Math.floor(Math.random() * counterLevel1 + counterLevel2)
       cur.style.animation = `mymove ${speed}s linear infinite`
       enimesss.push(cur);
-      // console.log(enimesss)
       cur.addEventListener('animationstart', function () {
-    
+
         setInterval(() => {
           isCollapsed(cur, player);
-    
+
         }, 100);
-    
-    
+
+
       });
       cur.addEventListener('animationiteration', function () {
         setInterval(() => {
           isCollapsed(cur, player)
         }, 100);
-    
+
       })
-    
-    
-    
+
+
+
     })
-    } while (scoreChange<parseInt($('#score').text()));
+  } while (scoreChange < parseInt($('#score').text()));
 }
 bugspeed();
 
 document.addEventListener('keydown', function (e) {
-  // console.log(e.keyCode);
   //top 
-  document.querySelector(".levelUpContainer").classList.add("hide")
+  if (flag == true) {
+    document.querySelector(".levelUpContainer").classList.add("hide")
     audio.muted = false;
-  if (e.keyCode == 38) {
-    y -= 14;
-    // document.querySelector(".levelUpContainer").classList.add("hide")
-    // audio.muted = false;
-
-    // console.log(x)
-    $('.girl').css({
-      "top": `${y}vh`
-    });
-
-    if (y < -50) {
-      y = 15;
-      x = 46;
-      // var levelUpAudio =document.querySelector(".levelUpAudio")
-      document.querySelector(".levelUpContainer").classList.remove("hide")
-
-      // levelUpAudio.play();
-
-
+    if (e.keyCode == 38) {
+      y -= 14;
       $('.girl').css({
         "top": `${y}vh`
       });
-      $('.girl').css({
-        "left": `${x}vw`
-      });
 
-
-      if (retrivedOjects && retrivedOjects.length > 0) {
-        arr.forEach(function (obj) {
-
-          if (obj.username === $('.NameOfPlayer').text()) {
-            // console.log("beeeeeb");
-
-            scoreChange=obj.score;
-            obj.score++;
-            counterLevel1-=2;
-            counterLevel2--;
-            console.log("befor ask ",speed);
-            if(speed<=1){
-              counterLevel1=2;
-              counterLevel2=1;
-              console.log("befor ask ",speed);
-              // Math.floor(Math.random() * counterLevel1 + counterLevel2)
-            }
-            if(counterLevel2===1){
-              counterLevel2=1;
-            }
-            bugspeed();
-            $('#noOfHeart').text(obj.lifes);
-            $('#score').text(obj.score);
-            $('#highScore').text(obj.highScore);
-            // console.log(obj, obj.score, obj.lifes)
-            return true
-
-          }
-
+      if (y < -50) {
+        y = 15;
+        x = 46;
+        document.querySelector(".levelUpContainer").classList.remove("hide")
+        $('.girl').css({
+          "top": `${y}vh`
         });
-        localStorage.setItem('dataObjectArr', JSON.stringify(arr));
+        $('.girl').css({
+          "left": `${x}vw`
+        });
+
+
+        if (retrivedOjects && retrivedOjects.length > 0) {
+          arr.forEach(function (obj) {
+
+            if (obj.username === $('.NameOfPlayer').text()) {
+              scoreChange = obj.score;
+              obj.score++;
+              counterLevel1 -= 2;
+              counterLevel2--;
+              if (speed <= 1) {
+                counterLevel1 = 2;
+                counterLevel2 = 1;
+              }
+              if (counterLevel2 === 1) {
+                counterLevel2 = 1;
+              }
+              bugspeed();
+              $('#noOfHeart').text(obj.lifes);
+              $('#score').text(obj.score);
+              $('#highScore').text(obj.highScore);
+              return true
+
+            }
+
+          });
+          localStorage.setItem('dataObjectArr', JSON.stringify(arr));
+
+        }
 
       }
-
     }
-  }
-  //bottom
+    //bottom
 
-  if (e.keyCode == 40) {
-    y += 14;
+    if (e.keyCode == 40) {
+      y += 14;
 
-    $('.girl').css({
-      "top": `${y}vh`
-    });
-    if (y >= 15) {
-      y = 15;
       $('.girl').css({
         "top": `${y}vh`
       });
+      if (y >= 15) {
+        y = 15;
+        $('.girl').css({
+          "top": `${y}vh`
+        });
+        $('.girl').css({
+          "left": `${x}vw`
+        });
+      }
+    }
+    //right
+    if (e.keyCode == 39) {
+      x += 2;
       $('.girl').css({
         "left": `${x}vw`
       });
+      if (x >= 94) {
+        x = 94;
+        $('.girl').css({
+          "left": `${x}vw`
+        });
+      }
     }
-  }
-  //right
-  if (e.keyCode == 39) {
-    x += 2;
-    $('.girl').css({
-      "left": `${x}vw`
-    });
-    // console.log(window.innerWidth)
-    // console.log(x)
-    if (x >= 94) {
-      x = 94;
-      // console.log("rrrr", x);
+    //left
+    if (e.keyCode == 37) {
+      x -= 2;
       $('.girl').css({
         "left": `${x}vw`
       });
-    }
-  }
-  //left
-  if (e.keyCode == 37) {
-    x -= 2;
-    $('.girl').css({
-      "left": `${x}vw`
-    });
 
-    if (x <= 0) {
-      x = 0;
-      $('.girl').css({
-        "left": `${x}vw`
-      });
+      if (x <= 0) {
+        x = 0;
+        $('.girl').css({
+          "left": `${x}vw`
+        });
+      }
     }
   }
   for (let index = 0; index < 3; index++) {
@@ -215,7 +186,6 @@ function isCollapsed(enemy, player) {
 
     audio.muted = true;
     fallAudio.play();
-    // audio.muted = false;
     $('.girl').css({
       "top": `${y}vh`
     });
@@ -223,32 +193,25 @@ function isCollapsed(enemy, player) {
       "left": `${x}vw`
     });
 
-
-    // console.log(storedLife)
-
     var life = storedLife;
-    // console.log(life)
-
     if (retrivedOjects && retrivedOjects.length > 0) {
       arr.forEach(function (obj) {
 
         if (obj.username === $('.NameOfPlayer').text()) {
-          // console.log("beeeeeb");
           if (obj.lifes <= 3) {
-
             obj.lifes--;
             obj.score = parseInt($('#score').text());
             $('#noOfHeart').text(obj.lifes);
 
           }
 
-
           if (obj.lifes == 0) {
 
+            flag=false;
+            document.querySelector('.game-container').classList.add("hide")
             obj.lifes = 3;
             if (obj.highScore < obj.score) {
               obj.highScore = obj.score;
-              // console.log(obj.highScore)
             }
             obj.score = 0;
             var gameOverAudio = document.querySelector(".gameOverAudio")
@@ -258,7 +221,6 @@ function isCollapsed(enemy, player) {
             audio.muted = true;
           }
 
-          // console.log(obj, obj.score, obj.lifes)
           return true
 
         }
@@ -270,6 +232,16 @@ function isCollapsed(enemy, player) {
 
 
   } else {
-    // console.log("noooooooo")
   }
 }
+
+
+
+document.querySelector(".on").addEventListener("click",soundOn);
+document.querySelector(".off").addEventListener("click",soundOff)
+
+
+
+
+
+
