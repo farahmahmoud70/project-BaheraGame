@@ -1,37 +1,25 @@
-import retrive from 'start.js'
+import {storedUsername,storedscore,storedLife,storedHighScore,retrivedOjects,arr} from './start.mjs'
+import {startGame,logIn,retrive} from './start.mjs'
+// import {logIn} from './start.mjs'
+
+
+$('#start-game').click(startGame);
+$('#login').click(logIn);
+
+///////////////////////////////////////////////////////////////////
+var y = 15;
+var x = 46;
 var player = document.querySelector('.girl');
 var enemies = document.querySelectorAll('.enemy');
 var enimesss = [];
 // let start = Date.now();
-var speed = Math.floor(Math.random() * 12 + 6)
+
+var counterLevel1=12;
+var counterLevel2=5;
+var speed = Math.floor(Math.random() * counterLevel1+ counterLevel2)
+console.log("jj",speed)
 // var d;
 // var body = document.body.clientWidth;
-enemies.forEach(function (cur) {
-  speed = Math.floor(Math.random() * 12 + 6)
-  cur.style.animation = `mymove ${speed}s linear infinite`
-  enimesss.push(cur);
-console.log(enimesss)
-  cur.addEventListener('animationstart', function () {
-
-    setInterval(() => {
-      isCollapsed(cur, player)
-    }, 100);
-  });
-  cur.addEventListener('animationiteration', function () {
-    setInterval(() => {
-      isCollapsed(cur, player)
-    }, 100);
-  })
-
-
-})
-
-console.log('bew',retrive())
-
-var y = 15;
-var x = 46;
-
-
 document.addEventListener('keydown', function (e) {
   console.log(e.keyCode);
   //top
@@ -45,6 +33,8 @@ document.addEventListener('keydown', function (e) {
     if (y < -50) {
       y = 15;
       x = 46;
+    
+      
 
       $('.girl').css({
         "top":`${y}vh`
@@ -53,9 +43,32 @@ document.addEventListener('keydown', function (e) {
         "left":`${x}vw`
       });
 
+
+      if(retrivedOjects && retrivedOjects.length > 0){
+        arr.forEach(function(obj) {
+  
+                  if(obj.username === $('.NameOfPlayer').text()){
+                  console.log("beeeeeb");
+                  
+  
+                   obj.score++;
+                   $('#noOfHeart').text(obj.lifes);
+                   $('#score').text(obj.score);
+                   $('#highScore').text(obj.highScore);
+                  console.log(obj,obj.score, obj.lifes)
+                  return true
+                  
+              }
+             
+          });
+          localStorage.setItem('dataObjectArr', JSON.stringify(arr));
+  
+      } 
+
     }
   }
   //bottom
+  
   if (e.keyCode == 40) {
     y += 14;
     
@@ -106,6 +119,48 @@ document.addEventListener('keydown', function (e) {
     isCollapsed(enimesss[index], player)
   }
 })
+
+enemies.forEach(function (cur) {
+  console.log(y)
+  if (document.querySelector('.girl').getBoundingClientRect()< -50) {
+    counterLevel1--;
+    counterLevel2--;
+
+    console.log("ccccc",counterLevel1);
+    console.log("vvvvv",counterLevel2);
+
+    console.log(speed);
+  }
+  speed = Math.floor(Math.random() * counterLevel1 + counterLevel2)
+  cur.style.animation = `mymove ${speed}s linear infinite`
+  enimesss.push(cur);
+console.log(enimesss)
+  cur.addEventListener('animationstart', function () {
+
+    setInterval(() => {
+      isCollapsed(cur, player);
+     
+    }, 100);
+
+    
+  });
+  cur.addEventListener('animationiteration', function () {
+    setInterval(() => {
+      isCollapsed(cur, player)
+    }, 100);
+    
+  })
+  
+
+
+})
+
+
+
+
+
+
+
 ////////////////////////////collsion
 function isCollapsed(enemy, player) {
   var bug = enemy.getBoundingClientRect();
@@ -122,6 +177,48 @@ function isCollapsed(enemy, player) {
     $('.girl').css({
       "left":`${x}vw`
     });
+
+
+    console.log(storedLife)
+    
+    var life = storedLife;
+    console.log(life)
+
+    if(retrivedOjects && retrivedOjects.length > 0){
+      arr.forEach(function(obj) {
+
+                if(obj.username === $('.NameOfPlayer').text()){
+                console.log("beeeeeb");
+                if(obj.lifes<=3){
+
+                  obj.lifes--;
+                  obj.score = parseInt($('#score').text());
+                  $('#noOfHeart').text(obj.lifes);
+                  
+                }
+                    
+     
+                if(obj.lifes == 0 ){
+                  
+                  obj.lifes = 3;
+                  if(obj.highScore < obj.score){
+                    obj.highScore = obj.score;
+                    console.log(obj.highScore)
+                }
+                obj.score = 0;
+                }
+
+                console.log(obj,obj.score, obj.lifes)
+                return true
+                
+            }
+           
+        });
+        localStorage.setItem('dataObjectArr', JSON.stringify(arr));
+
+    } 
+  
+
   }
   else {
     // console.log("noooooooo")
